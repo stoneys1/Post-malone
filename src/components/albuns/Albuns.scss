@@ -1,0 +1,74 @@
+@use '../../styles/mixins.scss';
+
+.albuns {
+  padding-top: 80px;
+}
+
+.h1 {
+  text-align: center;
+  font-size: 3rem;
+  color: var(--cultured);
+  margin-bottom: 2rem;
+}
+
+.albuns__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.album-card {
+  position: relative;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.5s ease-in-out; 
+}
+
+.album-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+
+  @include mixins.respond(phone) {
+    margin-inline: auto;
+}
+}
+
+.album-card:hover {
+  transform: scale(1.05); 
+}
+
+.album-info {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6); 
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  
+  opacity: 0; 
+  visibility: hidden; 
+  
+  transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.3s ease-in-out; 
+  transform: translateY(20px); 
+}
+
+.album-card:hover .album-info {
+  opacity: 1; 
+  visibility: visible; 
+  transform: translateY(0); 
+}
+
+.album-info h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.album-info p {
+  font-size: 0.9rem;
+  margin-top: 5px;
+  line-height: 1.4;
+}
